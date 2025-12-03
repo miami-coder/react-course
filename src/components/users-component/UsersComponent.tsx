@@ -1,21 +1,30 @@
 import UserComponent from "../user-component/UserComponent.tsx";
 import {useEffect, useState} from "react";
 import type {IUser} from "../../models/IUser.ts";
+import {getUsers} from "../../services/api.service.ts";
 
 const UsersComponent = () => {
     const [users, setUsers] = useState<IUser[]>([]);
+    const [item, setItem] = useState<IUser | null>(null)
 
     useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/users')
-            .then((response) => response.json())
+        getUsers()
             .then((response) => {
                 setUsers(response);
             });
     }, [])
+
+    const foo = (item: IUser) => {
+        setItem(item);
+        console.log(item);
+    }
     return (
         <div>
             {
-                users.map(user => <UserComponent key={user.id} item={user} />)
+                item && <div>{JSON.stringify(item)}</div>
+            }
+            {
+                users.map(user => <UserComponent foo={foo} key={user.id} item={user}/>)
             }
         </div>
     );
