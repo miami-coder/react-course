@@ -1,0 +1,11 @@
+import type {TodoModel} from "../models/TodoModels.ts";
+
+const endpointTodos = import.meta.env.VITE_API_BASE_URL + '/todos';
+
+const loadTodos = async ():Promise<TodoModel[]> => {
+
+    return await fetch(endpointTodos)
+        .then((response) => response.json())
+}
+
+export { loadTodos }
