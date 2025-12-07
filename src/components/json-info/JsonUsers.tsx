@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import {userService} from "../../services/api.service.ts";
 import type {IJUModels} from "../../models/IJUModels.ts";
-import {JsonUser} from "./JsonUser.tsx";
+import {JsonUser} from "../json-info-item/JsonUser.tsx";
 
 const JsonUsers = () => {
     const [usersJ, setUsersJ] = useState<IJUModels[]>([]);

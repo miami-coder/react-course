@@ -1,0 +1,9 @@
+.menu {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.menu > li:hover {
+    color: lawngreen;
+}
