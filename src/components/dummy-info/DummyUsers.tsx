@@ -14,7 +14,7 @@ export const DummyUsers = () => {
     return (
         <div>
             {
-                users.map((user) => <DummyUser key={user.id} item={user}/>)
+                users.map(user => <DummyUser key={user.id} item={user}/>)
             }
         </div>
     );

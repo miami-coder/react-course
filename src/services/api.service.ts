@@ -13,7 +13,8 @@ export const userService = {
     },
     getUserDummy: async (): Promise<IDUModels[]> => {
         return await fetch(urls.users.dummyUsers)
-            .then((response) => response.json())
+            .then(res => res.json())
+            .then(data => data.users);
     },
     getPostJson: async (): Promise<IJPModels[]> => {
         return await fetch(urls.posts.jsonPosts)
@@ -22,6 +23,7 @@ export const userService = {
     getPostDummy: async (): Promise<IDPModels[]> => {
         return await fetch(urls.posts.dummyPosts)
             .then((response) => response.json())
+            .then(data => data.posts);
     },
     getCommentsJson: async (): Promise<IJCModels[]> => {
         return await fetch(urls.comments.jsonComments)
@@ -30,5 +32,6 @@ export const userService = {
     getCommentsDummy: async (): Promise<IDCModels[]> => {
         return await fetch(urls.comments.dummyComments)
             .then((response) => response.json())
+            .then(data => data.comments);
     }
 }
